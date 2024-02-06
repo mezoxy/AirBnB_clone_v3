@@ -113,3 +113,12 @@ class TestFileStorage(unittest.TestCase):
         with open("file.json", "r") as f:
             js = f.read()
         self.assertEqual(json.loads(string), json.loads(js))
+
+    @unittest.skipIf(models.storage_t == 'db', "not testing file storage")
+    def test_get(self):
+        """Test that get properly the obj wanted"""
+       obj_state = State()
+       Id = str(obj_state.id)
+       name_cls = obj_state.__class__.name
+       obj_to_check = get(eval(name_cls), Id)
+       self.assertEqual(obj_state, obj_to_check)
