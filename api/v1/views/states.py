@@ -13,10 +13,10 @@ def  all_State():
 @app_views.route('/api/v1/states/<state_id>', methods=['GET'], strict_slashes=False)
 def inp_id(state_id):
     """Retrieves a State object:"""
-     state = storage.get(State, state_id)
+    state = storage.get(State, state_id)
 
-     if state is None:
-         abort(404)
+    if state is None:
+        abort(404)
     return jsonify(state.to_dict())
 
 @app_views.route('/api/v1/states/<state_id>', methods=['DELETE'], strict_slashes=False)
