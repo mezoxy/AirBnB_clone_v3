@@ -36,6 +36,6 @@ def nub_obj():
             }
 
     for key, val in lista.items():
-        count = storage.count()
+        count = storage.count(key)
         dictt[val] = count
     return jsonify(dictt)
