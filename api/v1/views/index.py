@@ -26,11 +26,14 @@ def get_status():
 def nub_obj():
     """Create an endpoint that retrieves the number of each objects"""
     dictt = {}
-    lista = {State: 'states',
+    lista = {
+            State: 'states',
             City: 'cities',
             User: 'users',
             Place: 'places',
-            Review: 'reviews', Amenity: 'amenities'}
+            Review: 'reviews',
+            Amenity: 'amenities'
+            }
 
     for key, val in lista.items():
         count = storage.count()
