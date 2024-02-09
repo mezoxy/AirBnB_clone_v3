@@ -26,9 +26,13 @@ def get_status():
 def nub_obj():
     """Create an endpoint that retrieves the number of each objects"""
     dictt = {}
-    lista = [State, City, User, Place, Review, Amenity]
+    lista = {State: 'states',
+            City: 'cities',
+            User: 'users',
+            Place: 'places',
+            Review: 'reviews', Amenity: 'amenities'}
 
-    for clase in lista:
-        count = storage.count(clase)
-        dictt[clase.__name__] = count
+    for key, val in lista.items():
+        count = storage.count()
+        dictt[val] = count
     return jsonify(dictt)
