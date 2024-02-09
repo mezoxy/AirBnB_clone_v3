@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""The module: app"""
+
+
 from flask import Flask, jsonify
 from models import storage
 from api.v1.views import app_views
