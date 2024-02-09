@@ -22,10 +22,12 @@ def get_status():
     return jsonify(rep)
 
 
-@app_views.route('/stats')
+@app_views.route('/stats', methods=['GET'])
 def nub_obj():
-    """Create an endpoint that retrieves the number of each objects"""
-    dictt = {}
+    """
+        Create an endpoint that retrieves the number of ojects
+        for each classe
+    """
     lista = {
             State: 'states',
             City: 'cities',
@@ -35,7 +37,4 @@ def nub_obj():
             Amenity: 'amenities'
             }
 
-    for key, val in lista.items():
-        count = storage.count(key)
-        dictt[val] = count
-    return jsonify(dictt)
+    return jsonify({val: storage.count(key) for key, val in lista.items()})
