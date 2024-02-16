@@ -29,12 +29,12 @@ def nub_obj():
         for each classe
     """
     lista = {
-            State: 'states',
-            City: 'cities',
-            User: 'users',
-            Place: 'places',
-            Review: 'reviews',
-            Amenity: 'amenities'
+            "State": 'states',
+            "City": 'cities',
+            "User": 'users',
+            "Place": 'places',
+            "Review": 'reviews',
+            "Amenity": 'amenities'
             }
 
     return jsonify({val: storage.count(key) for key, val in lista.items()})
