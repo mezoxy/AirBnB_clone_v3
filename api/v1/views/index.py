@@ -37,4 +37,8 @@ def nub_obj():
             "Amenity": 'amenities'
             }
 
-    return jsonify({val: storage.count(key) for key, val in lista.items()})
+    return jsonify({
+        val: storage.count(
+            key) for key, val in lista.items() if storage.count(
+                key)
+        })
